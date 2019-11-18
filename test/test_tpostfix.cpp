@@ -37,3 +37,9 @@ TEST(translyator, no_throw_with_result_correct_string_with_pz_and_check) {
 	trans.pz();
 	EXPECT_TRUE(81 == trans.result());
 }
+TEST(translyator, cannot_be_divided_by_zero) {
+	translyator trans("2.78/0");
+	trans.check();
+	trans.pz();
+	ASSERT_ANY_THROW(trans.result());
+}

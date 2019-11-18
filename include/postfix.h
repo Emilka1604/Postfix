@@ -251,15 +251,17 @@ public:
 								}
 								else
 									if (v[i]->getsym() == '/') {
-										b = st1.top();
-										st1.pop();
-										a = st1.top() / b;
-										if (b == 0) {
+										if (st1.top() == 0) {
 											std::exception ex("Cannot be divided by zero");
 											throw ex;
 										}
-										st1.pop();
-										st1.push(a);
+										else {
+											b = st1.top();
+											st1.pop();
+											a = st1.top() / b;
+											st1.pop();
+											st1.push(a);
+										}
 									}
 
 					}
